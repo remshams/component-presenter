@@ -10,4 +10,8 @@ export class ConferencesComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  isConferences(): boolean {
+    return true;
+  }
 }

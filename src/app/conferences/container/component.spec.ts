@@ -22,4 +22,10 @@ describe('ConferencesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('isConferences', () => {
+    it('should return true', () => {
+      expect(component.isConferences()).toEqual(true);
+    });
+  });
 });
