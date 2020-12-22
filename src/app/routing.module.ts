@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConferencesComponent } from './conferences/container/component';
+import { UsersComponent } from './users/container/component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'conferences',
+    redirectTo: 'users',
   },
   {
-    path: 'conferences',
-    component: ConferencesComponent,
+    path: 'users',
+    component: UsersComponent,
   },
 ];
 

@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
-import { ConferencesComponent } from './container/component';
+import { UsersComponent } from './container/component';
 
 @NgModule({
-  declarations: [ConferencesComponent],
+  declarations: [UsersComponent],
   imports: [CommonModule, MatListModule],
-  exports: [ConferencesComponent],
+  exports: [UsersComponent],
 })
-export class ConferencesModule {}
+export class UsersModule {}

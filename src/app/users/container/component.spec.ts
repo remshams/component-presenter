@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatListModule } from '@angular/material/list';
-import { ConferencesComponent } from './component';
+import { UsersComponent } from './component';
 
 describe('ConferencesComponent', () => {
-  let component: ConferencesComponent;
-  let fixture: ComponentFixture<ConferencesComponent>;
+  let component: UsersComponent;
+  let fixture: ComponentFixture<UsersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatListModule],
-      declarations: [ConferencesComponent],
+      declarations: [UsersComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConferencesComponent);
+    fixture = TestBed.createComponent(UsersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,9 +23,9 @@ describe('ConferencesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('isConferences', () => {
+  describe('isUsers', () => {
     it('should return true', () => {
-      expect(component.isConferences()).toEqual(true);
+      expect(component.isUsers()).toEqual(true);
     });
   });
 });
