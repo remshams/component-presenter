@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatListModule } from '@angular/material/list';
 import { ConferencesComponent } from './component';
 
 describe('ConferencesComponent', () => {
@@ -7,6 +8,7 @@ describe('ConferencesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [MatListModule],
       declarations: [ConferencesComponent],
     }).compileComponents();
   });
