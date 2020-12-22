@@ -3,15 +3,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './component';
-import { ConferencesModule } from './conferences/module';
 import { AppRoutingModule } from './routing.module';
+import { UsersModule } from './users/module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ConferencesModule,
+    UsersModule,
     BrowserAnimationsModule,
     MatToolbarModule,
   ],
