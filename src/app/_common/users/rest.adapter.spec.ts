@@ -4,21 +4,21 @@ import {
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { createUsersFixture } from './fixture';
-import { usersPath, UsersRestAdapter } from './rest.adapter';
-describe('UsersRestAdapter', () => {
+import { ProductionUsersRestAdapter, usersPath } from './rest.adapter';
+describe('ProductionUsersRestAdapter', () => {
   let httpTestinController: HttpTestingController;
-  let adapter: UsersRestAdapter;
+  let adapter: ProductionUsersRestAdapter;
 
   const users = createUsersFixture();
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [UsersRestAdapter],
+      providers: [ProductionUsersRestAdapter],
     });
 
     httpTestinController = TestBed.inject(HttpTestingController);
-    adapter = TestBed.inject(UsersRestAdapter);
+    adapter = TestBed.inject(ProductionUsersRestAdapter);
   });
 
   describe('list', () => {
