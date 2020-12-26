@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User, UsersRestAdapter } from './model';
+import { User, UsersRestAdapter, usersRestAdapterToken } from './model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class UsersBloc {
 
   readonly users$: Observable<ReadonlyArray<User>>;
 
-  constructor(private usersRestAdapter: UsersRestAdapter) {
+  constructor(@Inject(usersRestAdapterToken) private usersRestAdapter: UsersRestAdapter) {
     this.users = new BehaviorSubject<ReadonlyArray<User>>([]);
     this.users$ = this.users.asObservable();
   }

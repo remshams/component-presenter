@@ -1,8 +1,5 @@
-<mat-list *ngIf="isUsers(); else noUsers">
-  <mat-list-item>Fabi</mat-list-item>
-  <mat-list-item>Felix</mat-list-item>
-  <mat-list-item>Kerstin</mat-list-item>
-  <mat-list-item>Steffen</mat-list-item>
-</mat-list>
-
-<ng-template #noUsers> There are no users </ng-template>
+<ng-container *ngIf="usernames$ | async as usernames">
+  <mat-list>
+    <mat-list-item class="usernames_element" *ngFor="let username of usernames">{{username}}</mat-list-item>
+  </mat-list>
+</ng-container>
