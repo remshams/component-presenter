@@ -4,5 +4,9 @@ module.exports = {
   },
   modulePathIgnorePatterns: ['<rootDir>/dist/', '<rootDir>/out-tsc/', '<rootDir>/e2e/'],
   preset: 'jest-preset-angular',
-  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts']
+  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+  reporters: [
+    'default',
+    'jest-html-reporters'
+  ]
 };
