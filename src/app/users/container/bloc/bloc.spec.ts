@@ -20,8 +20,6 @@ describe('UsersComponentBloc', () => {
   beforeEach(() => {
     usersBloc = new UsersBloc(usersRestAdapterMock);
     bloc = new UsersComponentBloc(usersBloc);
-
-    usersBloc.refreshUsers();
   });
 
   describe('usernames$', () => {
@@ -37,6 +35,15 @@ describe('UsersComponentBloc', () => {
 
         expectObservable(bloc.usernames$).toBe('a', { a: [] });
       });
+    });
+  });
+  describe('Init', () => {
+    it('should trigger refresh of user list in UsersBloc', () => {
+      usersBloc = new UsersBloc(usersRestAdapterMock);
+      const refreshUsersSpy = spyOn(usersBloc, 'refreshUsers');
+      bloc = new UsersComponentBloc(usersBloc);
+
+      expect(refreshUsersSpy).toHaveBeenCalled();
     });
   });
 });

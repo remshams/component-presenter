@@ -1,1 +1,5 @@
-<p>users-bloc works!</p>
+<ng-container *ngIf="bloc.usernames$ | async as usernames">
+  <mat-list>
+    <mat-list-item *ngFor="let username of usernames">{{username}}</mat-list-item>
+  </mat-list>
+</ng-container>
