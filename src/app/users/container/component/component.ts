@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { UsersBloc } from 'src/app/_common/users/bloc';
-import { User } from 'src/app/_common/users/model';
+import { extractUserNames } from '../operators';
 
 @Component({
   selector: 'app-users',
@@ -22,10 +21,6 @@ export class UsersComponent implements OnInit {
   }
 
   private setupUsers(): Observable<ReadonlyArray<string>> {
-    return this.usersBloc.users$.pipe(this.extractUserNames());
-  }
-
-  private extractUserNames(): OperatorFunction<ReadonlyArray<User>, ReadonlyArray<string>> {
-    return map(users => users.map(user => user.name));
+    return this.usersBloc.users$.pipe(extractUserNames());
   }
 }
