@@ -9,9 +9,15 @@ export class UsersComponentBloc {
 
   constructor(private usersBloc: UsersBloc) {
     this.usernames$ = this.setupUserNames();
+
+    this.onInit();
   }
 
   private setupUserNames(): Observable<ReadonlyArray<string>> {
     return this.usersBloc.users$.pipe(extractUserNames());
+  }
+
+  private onInit(): void {
+    this.usersBloc.refreshUsers();
   }
 }
