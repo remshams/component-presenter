@@ -1,0 +1,21 @@
+<nav mat-tab-nav-bar>
+  <a
+    class="menu__item"
+    mat-tab-link
+    routerLinkActive
+    #rlaContainer="routerLinkActive"
+    routerLink="component"
+    [active]="rlaContainer.isActive"
+    >Component</a
+  >
+  <a
+    class="menu__item"
+    mat-tab-link
+    routerLinkActive
+    #rlaBloc="routerLinkActive"
+    routerLink="bloc"
+    [active]="rlaBloc.isActive"
+    >Bloc</a
+  >
+</nav>
+<router-outlet></router-outlet>

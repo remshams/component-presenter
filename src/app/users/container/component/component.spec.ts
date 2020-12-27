@@ -8,7 +8,7 @@ import { createUsersRestAdapterMock } from 'src/app/_common/users/mock';
 import { usersRestAdapterToken } from 'src/app/_common/users/model';
 import { UsersComponent } from './component';
 
-describe('ConferencesComponent', () => {
+describe('UsersComponent', () => {
   let component: UsersComponent;
   let fixture: ComponentFixture<UsersComponent>;
 
@@ -55,7 +55,7 @@ describe('ConferencesComponent', () => {
       });
     });
     it('should render user name list', () => {
-      const matListItems = fixture.nativeElement.querySelectorAll('.usernames_element');
+      const matListItems = fixture.nativeElement.querySelectorAll('.usernames__element');
 
       expect(matListItems.length).toEqual(userNames.length);
       expect(matListItems[0].textContent).toEqual(userNames[0]);
