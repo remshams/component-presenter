@@ -2,20 +2,27 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersBlocComponent } from './container/bloc/component';
 import { UsersComponent } from './container/component/component';
+import { UsersMenuComponent } from './container/menu/component';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'container'
-  },
-  {
-    path: 'container',
-    component: UsersComponent
-  },
-  {
-    path: 'bloc',
-    component: UsersBlocComponent
+    component: UsersMenuComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'component'
+      },
+      {
+        path: 'component',
+        component: UsersComponent
+      },
+      {
+        path: 'bloc',
+        component: UsersBlocComponent
+      }
+    ]
   }
 ];
 
