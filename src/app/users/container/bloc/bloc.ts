@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { UsersBloc } from '@app/common/users/bloc';
 import { Observable } from 'rxjs';
-import { UsersBloc } from 'src/app/_common/users/bloc';
 import { extractUserNames } from '../operators';
 
 @Injectable()

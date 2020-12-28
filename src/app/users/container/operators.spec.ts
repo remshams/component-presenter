@@ -1,6 +1,6 @@
+import { createRxTestScheduler } from '@app/common/test/test-helper';
+import { createUsersFixture } from '@app/common/users/fixture';
 import { of } from 'rxjs';
-import { createRxTestScheduler } from 'src/app/_common/test/test-helper';
-import { createUsersFixture } from 'src/app/_common/users/fixture';
 import { extractUserNames } from './operators';
 
 describe('UsersOperators', () => {
