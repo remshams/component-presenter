@@ -1,5 +1,5 @@
 <ng-container *ngIf="bloc.usernames$ | async as usernames">
   <mat-list>
-    <mat-list-item *ngFor="let username of usernames">{{username}}</mat-list-item>
+    <mat-list-item class="usernames__element" *ngFor="let username of usernames">{{username}}</mat-list-item>
   </mat-list>
 </ng-container>
