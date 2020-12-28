@@ -1,8 +1,8 @@
+import { createRxTestScheduler } from '@app/common/test/test-helper';
+import { UsersBloc } from '@app/common/users/bloc';
+import { createUsersFixture } from '@app/common/users/fixture';
+import { createUsersRestAdapterMock } from '@app/common/users/mock';
 import { of } from 'rxjs';
-import { createRxTestScheduler } from 'src/app/_common/test/test-helper';
-import { UsersBloc } from 'src/app/_common/users/bloc';
-import { createUsersFixture } from 'src/app/_common/users/fixture';
-import { createUsersRestAdapterMock } from 'src/app/_common/users/mock';
 import { UsersComponent } from './component';
 
 describe('UsersComponent - Logic', () => {
