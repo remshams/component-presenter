@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './container/component/component';
 import { UsersMenuComponent } from './container/menu/component';
-import { UsersBlocComponent } from './container/presenter/component';
+import { UsersWithPresenterComponent } from './container/presenter/component';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
         component: UsersComponent
       },
       {
-        path: 'bloc',
-        component: UsersBlocComponent
+        path: 'presenter',
+        component: UsersWithPresenterComponent
       }
     ]
   }

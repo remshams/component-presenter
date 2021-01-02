@@ -8,7 +8,7 @@ import { UsersComponentPresenter } from './presenter';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [UsersComponentPresenter]
 })
-export class UsersBlocComponent implements OnInit {
+export class UsersWithPresenterComponent implements OnInit {
   constructor(public presenter: UsersComponentPresenter) {}
 
   ngOnInit(): void {}

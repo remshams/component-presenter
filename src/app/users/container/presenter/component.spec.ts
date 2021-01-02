@@ -5,11 +5,11 @@ import { createUsersRestAdapterMock } from '@app/common/users/mock';
 import { usersRestAdapterToken } from '@app/common/users/model';
 import { UsersService } from '@app/common/users/service';
 import { of } from 'rxjs';
-import { UsersBlocComponent } from './component';
+import { UsersWithPresenterComponent } from './component';
 
-describe('UsersComponent', () => {
-  let component: UsersBlocComponent;
-  let fixture: ComponentFixture<UsersBlocComponent>;
+describe('UsersWithPresenter', () => {
+  let component: UsersWithPresenterComponent;
+  let fixture: ComponentFixture<UsersWithPresenterComponent>;
 
   const users = createUsersFixture();
   const userNames = users.map(user => user.name);
@@ -18,7 +18,7 @@ describe('UsersComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatListModule],
-      declarations: [UsersBlocComponent],
+      declarations: [UsersWithPresenterComponent],
       providers: [
         {
           provide: usersRestAdapterToken,
@@ -34,7 +34,7 @@ describe('UsersComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UsersBlocComponent);
+    fixture = TestBed.createComponent(UsersWithPresenterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
