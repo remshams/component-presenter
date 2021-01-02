@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { extractUserNames } from '../operators';
 
 @Injectable()
-export class UsersComponentBloc {
+export class UsersComponentPresenter {
   readonly usernames$: Observable<ReadonlyArray<string>>;
 
   constructor(private usersService: UsersService) {

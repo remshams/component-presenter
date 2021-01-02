@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UsersComponentBloc } from './bloc';
+import { UsersComponentPresenter } from './presenter';
 
 @Component({
   selector: 'app-users-bloc',
   templateUrl: './component.html',
   styleUrls: ['./component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [UsersComponentBloc]
+  providers: [UsersComponentPresenter]
 })
 export class UsersBlocComponent implements OnInit {
-  constructor(public bloc: UsersComponentBloc) {}
+  constructor(public presenter: UsersComponentPresenter) {}
 
   ngOnInit(): void {}
 }
