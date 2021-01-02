@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UsersBloc } from '@app/common/users/bloc';
+import { UsersService } from '@app/common/users/service';
 import { Observable } from 'rxjs';
 import { extractUserNames } from '../operators';
 
@@ -12,15 +12,15 @@ import { extractUserNames } from '../operators';
 export class UsersComponent implements OnInit {
   readonly usernames$: Observable<ReadonlyArray<string>>;
 
-  constructor(private usersBloc: UsersBloc) {
+  constructor(private usersService: UsersService) {
     this.usernames$ = this.setupUsers();
   }
 
   ngOnInit(): void {
-    this.usersBloc.refreshUsers();
+    this.usersService.refreshUsers();
   }
 
   private setupUsers(): Observable<ReadonlyArray<string>> {
-    return this.usersBloc.users$.pipe(extractUserNames());
+    return this.usersService.users$.pipe(extractUserNames());
   }
 }

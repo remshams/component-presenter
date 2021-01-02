@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatListModule } from '@angular/material/list';
-import { UsersBloc } from '@app/common/users/bloc';
 import { createUsersFixture } from '@app/common/users/fixture';
 import { createUsersRestAdapterMock } from '@app/common/users/mock';
 import { usersRestAdapterToken } from '@app/common/users/model';
+import { UsersService } from '@app/common/users/service';
 import { of } from 'rxjs';
 import { UsersBlocComponent } from './component';
 
@@ -24,7 +24,7 @@ describe('UsersComponent', () => {
           provide: usersRestAdapterToken,
           useValue: usersRestAdapterMock
         },
-        UsersBloc
+        UsersService
       ]
     }).compileComponents();
   });

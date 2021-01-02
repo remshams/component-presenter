@@ -1,13 +1,13 @@
 import { of } from 'rxjs';
 import { createRxTestScheduler } from '../test/test-helper';
-import { UsersBloc } from './bloc';
 import { createUsersFixture } from './fixture';
 import { createUsersRestAdapterMock } from './mock';
+import { UsersService } from './service';
 
-describe('UsersBloc', () => {
+describe('UsersService', () => {
   const users = createUsersFixture();
   const userRestAdapter = createUsersRestAdapterMock();
-  const bloc = new UsersBloc(userRestAdapter);
+  const bloc = new UsersService(userRestAdapter);
 
   beforeEach(() => {
     userRestAdapter.list.mockReset();
