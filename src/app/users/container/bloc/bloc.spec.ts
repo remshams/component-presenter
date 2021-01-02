@@ -1,7 +1,7 @@
 import { createRxTestScheduler } from '@app/common/test/test-helper';
-import { UsersBloc } from '@app/common/users/bloc';
 import { createUsersFixture } from '@app/common/users/fixture';
 import { createUsersRestAdapterMock } from '@app/common/users/mock';
+import { UsersService } from '@app/common/users/service';
 import { of } from 'rxjs';
 import { UsersComponentBloc } from './bloc';
 
@@ -9,7 +9,7 @@ describe('UsersComponentBloc', () => {
   const users = createUsersFixture();
   const userNames = users.map(user => user.name);
   const usersRestAdapterMock = createUsersRestAdapterMock();
-  let usersBloc: UsersBloc;
+  let usersService: UsersService;
   let bloc: UsersComponentBloc;
 
   beforeEach(() => {
@@ -18,8 +18,8 @@ describe('UsersComponentBloc', () => {
   });
 
   beforeEach(() => {
-    usersBloc = new UsersBloc(usersRestAdapterMock);
-    bloc = new UsersComponentBloc(usersBloc);
+    usersService = new UsersService(usersRestAdapterMock);
+    bloc = new UsersComponentBloc(usersService);
   });
 
   describe('usernames$', () => {
@@ -31,17 +31,17 @@ describe('UsersComponentBloc', () => {
     it('should emit empty list in case there are no users', () => {
       createRxTestScheduler().run(({ expectObservable }) => {
         usersRestAdapterMock.list.mockReturnValue(of([]));
-        usersBloc.refreshUsers();
+        usersService.refreshUsers();
 
         expectObservable(bloc.usernames$).toBe('a', { a: [] });
       });
     });
   });
   describe('Init', () => {
-    it('should trigger refresh of user list in UsersBloc', () => {
-      usersBloc = new UsersBloc(usersRestAdapterMock);
-      const refreshUsersSpy = spyOn(usersBloc, 'refreshUsers');
-      bloc = new UsersComponentBloc(usersBloc);
+    it('should trigger refresh of user list in UsersService', () => {
+      usersService = new UsersService(usersRestAdapterMock);
+      const refreshUsersSpy = spyOn(usersService, 'refreshUsers');
+      bloc = new UsersComponentBloc(usersService);
 
       expect(refreshUsersSpy).toHaveBeenCalled();
     });

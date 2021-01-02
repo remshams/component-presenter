@@ -5,7 +5,7 @@ import { User, UsersRestAdapter, usersRestAdapterToken } from './model';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersBloc {
+export class UsersService {
   private readonly users: BehaviorSubject<ReadonlyArray<User>>;
 
   readonly users$: Observable<ReadonlyArray<User>>;

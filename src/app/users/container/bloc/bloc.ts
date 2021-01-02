@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UsersBloc } from '@app/common/users/bloc';
+import { UsersService } from '@app/common/users/service';
 import { Observable } from 'rxjs';
 import { extractUserNames } from '../operators';
 
@@ -7,17 +7,17 @@ import { extractUserNames } from '../operators';
 export class UsersComponentBloc {
   readonly usernames$: Observable<ReadonlyArray<string>>;
 
-  constructor(private usersBloc: UsersBloc) {
+  constructor(private usersService: UsersService) {
     this.usernames$ = this.setupUserNames();
 
     this.onInit();
   }
 
   private setupUserNames(): Observable<ReadonlyArray<string>> {
-    return this.usersBloc.users$.pipe(extractUserNames());
+    return this.usersService.users$.pipe(extractUserNames());
   }
 
   private onInit(): void {
-    this.usersBloc.refreshUsers();
+    this.usersService.refreshUsers();
   }
 }

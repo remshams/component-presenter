@@ -1,7 +1,7 @@
 import { createRxTestScheduler } from '@app/common/test/test-helper';
-import { UsersBloc } from '@app/common/users/bloc';
 import { createUsersFixture } from '@app/common/users/fixture';
 import { createUsersRestAdapterMock } from '@app/common/users/mock';
+import { UsersService } from '@app/common/users/service';
 import { of } from 'rxjs';
 import { UsersComponent } from './component';
 
@@ -10,7 +10,7 @@ describe('UsersComponent - Logic', () => {
   const users = createUsersFixture();
   const userNames = users.map(user => user.name);
   const usersRestAdapterMock = createUsersRestAdapterMock();
-  const usersBlock = new UsersBloc(usersRestAdapterMock);
+  const usersService = new UsersService(usersRestAdapterMock);
 
   beforeEach(() => {
     usersRestAdapterMock.list.mockReset();
@@ -18,7 +18,7 @@ describe('UsersComponent - Logic', () => {
   });
 
   beforeEach(() => {
-    component = new UsersComponent(usersBlock);
+    component = new UsersComponent(usersService);
     component.ngOnInit();
   });
 
