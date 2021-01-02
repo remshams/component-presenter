@@ -26,7 +26,7 @@ describe('UsersMenuComponent', () => {
 
       expect(matMenuItems.length).toEqual(2);
       expect(matMenuItems[0].textContent).toEqual('Component');
-      expect(matMenuItems[1].textContent).toEqual('Bloc');
+      expect(matMenuItems[1].textContent).toEqual('Presenter');
     });
   });
 });
