@@ -7,7 +7,7 @@ import { UsersService } from './service';
 describe('UsersService', () => {
   const users = createUsersFixture();
   const userRestAdapter = createUsersRestAdapterMock();
-  const bloc = new UsersService(userRestAdapter);
+  const service = new UsersService(userRestAdapter);
 
   beforeEach(() => {
     userRestAdapter.list.mockReset();
@@ -17,15 +17,15 @@ describe('UsersService', () => {
   describe('users', () => {
     it('should emit empty list when not initialized', () => {
       createRxTestScheduler().run(({ expectObservable }) => {
-        expectObservable(bloc.users$).toBe('a', { a: [] });
+        expectObservable(service.users$).toBe('a', { a: [] });
         expect(userRestAdapter.list).not.toHaveBeenCalled();
       });
     });
     it('should emit list of users', () => {
       createRxTestScheduler().run(({ expectObservable }) => {
-        bloc.refreshUsers();
+        service.refreshUsers();
 
-        expectObservable(bloc.users$).toBe('a', { a: users });
+        expectObservable(service.users$).toBe('a', { a: users });
         expect(userRestAdapter.list).toHaveBeenCalled();
       });
     });

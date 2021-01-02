@@ -1,8 +1,8 @@
-# ComponentBloc
+# ComponentPresenter
 
 ## Description
 
-Repository showcasing a Bloc approach for handling component state and component business logic
+Repository showcasing a presenter approach for handling component state and component business logic
 
 ## Development server
 
