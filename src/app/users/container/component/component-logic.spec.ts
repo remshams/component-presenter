@@ -39,7 +39,7 @@ describe('UsersComponent - Logic', () => {
   });
 
   describe('Init', () => {
-    it('should trigger refresh of user list in UsersBloc', () => {
+    it('should trigger refresh of user list in UsersPresenter', () => {
       expect(usersRestAdapterMock.list).toHaveBeenCalled();
     });
   });
