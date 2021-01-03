@@ -1,6 +1,8 @@
 <ng-container *ngIf="usernames$ | async as usernames">
   <mat-list>
+    <h3 mat-subheader>List</h3>
     <mat-list-item class="usernames__element" *ngFor="let username of usernames">{{username}}</mat-list-item>
+    <h3 mat-subheader>Count</h3>
+    <mat-list-item> <app-user-counter></app-user-counter></mat-list-item>
   </mat-list>
-  <app-user-counter></app-user-counter>
 </ng-container>

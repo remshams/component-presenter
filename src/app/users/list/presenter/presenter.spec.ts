@@ -38,10 +38,10 @@ describe('UsersComponentPresenter', () => {
     });
   });
 
-  describe('numberOfUsers$', () => {
-    it('should emit number of users', () => {
+  describe('userCount$', () => {
+    it('should emit user count', () => {
       createRxTestScheduler().run(({ expectObservable }) => {
-        expectObservable(presenter.numberofUsers$).toBe('a', { a: users.length });
+        expectObservable(presenter.userCount$).toBe('a', { a: users.length });
       });
     });
     it('should emit 0 in case there no users', () => {
@@ -49,7 +49,7 @@ describe('UsersComponentPresenter', () => {
         usersRestAdapterMock.list.mockReturnValue(of([]));
         usersService.refreshUsers();
 
-        expectObservable(presenter.numberofUsers$).toBe('a', { a: 0 });
+        expectObservable(presenter.userCount$).toBe('a', { a: 0 });
       });
     });
   });
