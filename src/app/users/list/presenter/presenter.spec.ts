@@ -3,14 +3,14 @@ import { createUsersFixture } from '@app/common/users/fixture';
 import { createUsersRestAdapterMock } from '@app/common/users/mock';
 import { UsersService } from '@app/common/users/service';
 import { of } from 'rxjs';
-import { UsersComponentPresenter } from './presenter';
+import { UsersPresenter } from './presenter';
 
-describe('UsersComponentPresenter', () => {
+describe('UsersPresenter', () => {
   const users = createUsersFixture();
   const userNames = users.map(user => user.name);
   const usersRestAdapterMock = createUsersRestAdapterMock();
   let usersService: UsersService;
-  let presenter: UsersComponentPresenter;
+  let presenter: UsersPresenter;
 
   beforeEach(() => {
     usersRestAdapterMock.list.mockReset();
@@ -19,7 +19,7 @@ describe('UsersComponentPresenter', () => {
 
   beforeEach(() => {
     usersService = new UsersService(usersRestAdapterMock);
-    presenter = new UsersComponentPresenter(usersService);
+    presenter = new UsersPresenter(usersService);
   });
 
   describe('usernames$', () => {
@@ -58,7 +58,7 @@ describe('UsersComponentPresenter', () => {
     it('should trigger refresh of user list in UsersService', () => {
       usersService = new UsersService(usersRestAdapterMock);
       const refreshUsersSpy = spyOn(usersService, 'refreshUsers');
-      presenter = new UsersComponentPresenter(usersService);
+      presenter = new UsersPresenter(usersService);
 
       expect(refreshUsersSpy).toHaveBeenCalled();
     });
