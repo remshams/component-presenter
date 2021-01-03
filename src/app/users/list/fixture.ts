@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
-import { UserCounterComponent } from '../counter/component';
 import { UsersComponent } from './component/component';
 import { UsersWithPresenterComponent } from './presenter/component';
+import { UserCounterComponent } from './presenter/counter/component';
 
 @NgModule({
   imports: [MatListModule, CommonModule],

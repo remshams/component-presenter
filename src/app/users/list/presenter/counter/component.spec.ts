@@ -5,7 +5,7 @@ import { createUsersRestAdapterMock } from '@app/common/users/mock';
 import { usersRestAdapterToken } from '@app/common/users/model';
 import { UsersService } from '@app/common/users/service';
 import { of } from 'rxjs';
-import { UsersComponentPresenter } from '../list/presenter/presenter';
+import { UsersComponentPresenter } from '../presenter';
 import { UserCounterComponent } from './component';
 
 describe('UserCounterComponent', () => {

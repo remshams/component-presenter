@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UsersComponentPresenter } from '../list/presenter/presenter';
+import { UsersComponentPresenter } from '../presenter';
 
 @Component({
   selector: 'app-user-counter',
