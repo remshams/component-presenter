@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UsersService } from '@app/common/users/service';
 import { Observable } from 'rxjs';
-import { extractUserNames } from '../operators';
+import { extractUserNames } from '../../operators';
 
 @Component({
   selector: 'app-users',
