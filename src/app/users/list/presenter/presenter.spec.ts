@@ -37,6 +37,23 @@ describe('UsersComponentPresenter', () => {
       });
     });
   });
+
+  describe('numberOfUsers$', () => {
+    it('should emit number of users', () => {
+      createRxTestScheduler().run(({ expectObservable }) => {
+        expectObservable(presenter.numberofUsers$).toBe('a', { a: users.length });
+      });
+    });
+    it('should emit 0 in case there no users', () => {
+      createRxTestScheduler().run(({ expectObservable }) => {
+        usersRestAdapterMock.list.mockReturnValue(of([]));
+        usersService.refreshUsers();
+
+        expectObservable(presenter.numberofUsers$).toBe('a', { a: 0 });
+      });
+    });
+  });
+
   describe('Init', () => {
     it('should trigger refresh of user list in UsersService', () => {
       usersService = new UsersService(usersRestAdapterMock);
