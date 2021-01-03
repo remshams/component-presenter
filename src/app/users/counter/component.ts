@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { UsersComponentPresenter } from '../list/presenter/presenter';
 
 @Component({
   selector: 'app-user-counter',
@@ -7,7 +8,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserCounterComponent implements OnInit {
-  constructor() {}
+  constructor(public presenter: UsersComponentPresenter) {}
 
   ngOnInit(): void {}
 }
