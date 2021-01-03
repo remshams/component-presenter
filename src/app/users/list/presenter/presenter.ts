@@ -5,11 +5,11 @@ import { extractNumberOfUsers, extractUserNames } from '../operators';
 
 @Injectable()
 export class UsersPresenter {
-  readonly usernames$: Observable<ReadonlyArray<string>>;
+  readonly userNames$: Observable<ReadonlyArray<string>>;
   readonly userCount$: Observable<number>;
 
   constructor(private usersService: UsersService) {
-    this.usernames$ = this.setupUserNames();
+    this.userNames$ = this.setupUserNames();
     this.userCount$ = this.setupUserCount();
 
     this.onInit();

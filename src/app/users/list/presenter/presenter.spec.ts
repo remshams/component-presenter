@@ -22,10 +22,10 @@ describe('UsersPresenter', () => {
     presenter = new UsersPresenter(usersService);
   });
 
-  describe('usernames$', () => {
+  describe('userNames$', () => {
     it('should emit list of user names', () => {
       createRxTestScheduler().run(({ expectObservable }) => {
-        expectObservable(presenter.usernames$).toBe('a', { a: userNames });
+        expectObservable(presenter.userNames$).toBe('a', { a: userNames });
       });
     });
     it('should emit empty list in case there are no users', () => {
@@ -33,7 +33,7 @@ describe('UsersPresenter', () => {
         usersRestAdapterMock.list.mockReturnValue(of([]));
         usersService.refreshUsers();
 
-        expectObservable(presenter.usernames$).toBe('a', { a: [] });
+        expectObservable(presenter.userNames$).toBe('a', { a: [] });
       });
     });
   });

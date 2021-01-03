@@ -39,7 +39,7 @@ describe('UsersComponent', () => {
     fixture.detectChanges();
   });
 
-  describe('usernames$', () => {
+  describe('userNames$', () => {
     it('should emit list of user names', () => {
       createRxTestScheduler().run(({ expectObservable }) => {
         expectObservable(component.userNames$).toBe('a', { a: userNames });
@@ -54,7 +54,7 @@ describe('UsersComponent', () => {
       });
     });
     it('should render user name list', () => {
-      const matListItems = fixture.nativeElement.querySelectorAll('.usernames__element');
+      const matListItems = fixture.nativeElement.querySelectorAll('.userNames__element');
 
       expect(matListItems.length).toEqual(userNames.length);
       expect(matListItems[0].textContent).toEqual(userNames[0]);
@@ -76,7 +76,7 @@ describe('UsersComponent', () => {
       });
     });
     it('should render user count', () => {
-      const count = fixture.nativeElement.querySelector('.usernames__count');
+      const count = fixture.nativeElement.querySelector('.userNames__count');
 
       expect(count.textContent).toContain(users.length);
     });

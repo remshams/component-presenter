@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { UsersPresenter } from './presenter';
 
 @Component({
@@ -8,8 +8,6 @@ import { UsersPresenter } from './presenter';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [UsersPresenter]
 })
-export class UsersWithPresenterComponent implements OnInit {
+export class UsersWithPresenterComponent {
   constructor(public presenter: UsersPresenter) {}
-
-  ngOnInit(): void {}
 }

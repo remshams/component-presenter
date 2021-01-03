@@ -39,9 +39,9 @@ describe('UsersWithPresenter', () => {
     fixture.detectChanges();
   });
 
-  describe('usernames', () => {
+  describe('userNames', () => {
     it('should render user name list', () => {
-      const matListItems = fixture.nativeElement.querySelectorAll('.usernames__element');
+      const matListItems = fixture.nativeElement.querySelectorAll('.userNames__element');
 
       expect(matListItems.length).toEqual(userNames.length);
       expect(matListItems[0].textContent).toEqual(userNames[0]);

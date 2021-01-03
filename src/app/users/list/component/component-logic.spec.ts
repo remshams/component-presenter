@@ -22,7 +22,7 @@ describe('UsersComponent - Logic', () => {
     component.ngOnInit();
   });
 
-  describe('usernames$', () => {
+  describe('userNames$', () => {
     it('should emit list of user names', () => {
       createRxTestScheduler().run(({ expectObservable }) => {
         expectObservable(component.userNames$).toBe('a', { a: userNames });
