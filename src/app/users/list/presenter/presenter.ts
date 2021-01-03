@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UsersService } from '@app/common/users/service';
 import { Observable } from 'rxjs';
-import { extractUserNames } from '../../operators';
+import { extractUserNames } from '../operators';
 
 @Injectable()
 export class UsersComponentPresenter {

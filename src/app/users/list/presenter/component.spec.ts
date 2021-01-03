@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatListModule } from '@angular/material/list';
 import { createUsersFixture } from '@app/common/users/fixture';
 import { createUsersRestAdapterMock } from '@app/common/users/mock';
 import { usersRestAdapterToken } from '@app/common/users/model';
 import { UsersService } from '@app/common/users/service';
 import { of } from 'rxjs';
+import { UsersTestModule } from '../fixture';
 import { UsersWithPresenterComponent } from './component';
 
 describe('UsersWithPresenter', () => {
@@ -17,7 +17,7 @@ describe('UsersWithPresenter', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatListModule],
+      imports: [UsersTestModule],
       declarations: [UsersWithPresenterComponent],
       providers: [
         {
