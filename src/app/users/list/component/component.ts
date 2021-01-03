@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UsersService } from '@app/common/users/service';
 import { Observable } from 'rxjs';
-import { extractUserNames } from '../operators';
+import { extractNumberOfUsers, extractUserNames } from '../operators';
 
 @Component({
   selector: 'app-users',
@@ -10,10 +10,12 @@ import { extractUserNames } from '../operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsersComponent implements OnInit {
-  readonly usernames$: Observable<ReadonlyArray<string>>;
+  readonly userNames$: Observable<ReadonlyArray<string>>;
+  readonly userCount$: Observable<number>;
 
   constructor(private usersService: UsersService) {
-    this.usernames$ = this.setupUsers();
+    this.userNames$ = this.setupUsers();
+    this.userCount$ = this.setupUserCount();
   }
 
   ngOnInit(): void {
@@ -22,5 +24,9 @@ export class UsersComponent implements OnInit {
 
   private setupUsers(): Observable<ReadonlyArray<string>> {
     return this.usersService.users$.pipe(extractUserNames());
+  }
+
+  private setupUserCount(): Observable<number> {
+    return this.usersService.users$.pipe(extractNumberOfUsers());
   }
 }

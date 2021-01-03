@@ -25,7 +25,7 @@ describe('UsersComponent - Logic', () => {
   describe('usernames$', () => {
     it('should emit list of user names', () => {
       createRxTestScheduler().run(({ expectObservable }) => {
-        expectObservable(component.usernames$).toBe('a', { a: userNames });
+        expectObservable(component.userNames$).toBe('a', { a: userNames });
       });
     });
     it('should emit empty list in case there are no users', () => {
@@ -33,7 +33,7 @@ describe('UsersComponent - Logic', () => {
         usersRestAdapterMock.list.mockReturnValue(of([]));
         component.ngOnInit();
 
-        expectObservable(component.usernames$).toBe('a', { a: [] });
+        expectObservable(component.userNames$).toBe('a', { a: [] });
       });
     });
   });
