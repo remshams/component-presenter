@@ -42,7 +42,7 @@ describe('UsersComponent', () => {
   describe('usernames$', () => {
     it('should emit list of user names', () => {
       createRxTestScheduler().run(({ expectObservable }) => {
-        expectObservable(component.usernames$).toBe('a', { a: userNames });
+        expectObservable(component.userNames$).toBe('a', { a: userNames });
       });
     });
     it('should emit empty list in case there are no users', () => {
@@ -50,7 +50,7 @@ describe('UsersComponent', () => {
         usersRestAdapterMock.list.mockReturnValue(of([]));
         component.ngOnInit();
 
-        expectObservable(component.usernames$).toBe('a', { a: [] });
+        expectObservable(component.userNames$).toBe('a', { a: [] });
       });
     });
     it('should render user name list', () => {
@@ -58,6 +58,27 @@ describe('UsersComponent', () => {
 
       expect(matListItems.length).toEqual(userNames.length);
       expect(matListItems[0].textContent).toEqual(userNames[0]);
+    });
+  });
+
+  describe('userCount$', () => {
+    it('should emit user count', () => {
+      createRxTestScheduler().run(({ expectObservable }) => {
+        expectObservable(component.userCount$).toBe('a', { a: users.length });
+      });
+    });
+    it('should emit 0 in case there are no users', () => {
+      createRxTestScheduler().run(({ expectObservable }) => {
+        usersRestAdapterMock.list.mockReturnValue(of([]));
+        component.ngOnInit();
+
+        expectObservable(component.userCount$).toBe('a', { a: 0 });
+      });
+    });
+    it('should render user count', () => {
+      const count = fixture.nativeElement.querySelector('.usernames__count');
+
+      expect(count.textContent).toContain(users.length);
     });
   });
 
