@@ -38,6 +38,22 @@ describe('UsersComponent - Logic', () => {
     });
   });
 
+  describe('userCount$', () => {
+    it('should emit user count', () => {
+      createRxTestScheduler().run(({ expectObservable }) => {
+        expectObservable(component.userCount$).toBe('a', { a: users.length });
+      });
+    });
+    it('should emit 0 in case there are no users', () => {
+      createRxTestScheduler().run(({ expectObservable }) => {
+        usersRestAdapterMock.list.mockReturnValue(of([]));
+        component.ngOnInit();
+
+        expectObservable(component.userCount$).toBe('a', { a: 0 });
+      });
+    });
+  });
+
   describe('Init', () => {
     it('should trigger refresh of user list in UsersPresenter', () => {
       expect(usersRestAdapterMock.list).toHaveBeenCalled();

@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UsersComponentPresenter } from './presenter';
+import { UsersPresenter } from './presenter';
 
 @Component({
   selector: 'app-users-presenter',
   templateUrl: './component.html',
   styleUrls: ['./component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [UsersComponentPresenter]
+  providers: [UsersPresenter]
 })
 export class UsersWithPresenterComponent implements OnInit {
-  constructor(public presenter: UsersComponentPresenter) {}
+  constructor(public presenter: UsersPresenter) {}
 
   ngOnInit(): void {}
 }
