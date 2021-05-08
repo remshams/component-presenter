@@ -2,7 +2,7 @@
 
 ## Description
 
-Repository showcasing a presenter approach for handling component state and component business logic
+Repository showcasing a [presenter approach](https://dev.to/remshams/reactive-angular-components-with-presenters-part-1-4ki9) for handling component state and component business logic
 
 ## Development server
 
